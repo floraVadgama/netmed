@@ -1,0 +1,164 @@
+<html>
+    <head>
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=La+Belle+Aurore&family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Poppins:wght@400;500;600;700&family=Secular+One&display=swap" rel="stylesheet">
+          <style> 
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Secular One', sans-serif;
+                font-size: 17px;
+                font-weight: 100;
+            }
+            body{
+                display: flex;
+                flex-flow: wrap row;
+                justify-content: center;
+                align-content: center;
+                background-color: #f0f0f3;
+            }
+            section{
+                line-height: 30px;
+                padding: 10px 20px;
+                box-shadow: -10px -10px 25px #ffffff, 10px 10px 25px #aeaec0;
+                width: 80%;
+            }
+            section div{
+                position: relative;     
+                display: flex;
+                flex-flow: wrap row;
+                align-content:space-evenly;
+                margin:10px 0 10px 0;
+                justify-content: center;
+                box-shadow: inset -10px -10px 20px #ffffff, inset 5px 5px 15px #aeaec0;
+                height: 55vh;
+                
+            }
+            section span{
+                color: blue;
+            }
+            section div h1{
+                position: absolute;
+                top: 0;
+                left: 0;
+                padding: 10px;
+                font-size: 35px;
+                font-family:'Times New Roman', Times, serif;
+            }
+            section div sub{
+                font-size: 24px;
+                font-family:'Times New Roman', Times, serif;    
+            }
+            button{
+                position: absolute;
+                right:15px;
+                bottom:15px;
+                box-shadow: -8px -8px 20px #ffffff, 8px 8px 20px #aeaec0;
+                padding: 20px 15px;
+                font-size: 20px;
+                font-family: 'Secular One', sans-serif;
+                border-radius:100%;
+                outline: 0px;
+                border: 0px;
+            }
+            .donate{
+                text-decoration: none;
+                color: black;
+                border-radius: 20px;
+                position: absolute;   box-shadow: -8px -8px 15px #ffffff, 8px 8px 15px #aeaec0;
+                border: 0px;
+                outline: 0px;
+                padding: 10px 40px;
+                font-size: 25px;
+            }
+            .donate:hover{
+                transition: 0.2s;    
+                box-shadow: inset -10px -10px 20px #ffffff, inset 5px 5px 15px #aeaec0;
+                color: red;
+            }
+            button:hover{
+                color: blue;
+                box-shadow: inset -10px -10px 20px #ffffff, inset 5px 5px 15px #aeaec0;
+                transition: 0.2s;    
+            }
+            section div main{
+              width: 90%;
+              height: 45vh;
+              padding: 30px 0;
+            line-height: 38px;
+            }
+        section header{
+            display: flex;
+            flex-flow: wrap row;
+            justify-content: space-between;
+        }
+            section div span{
+                display: block;
+                font-size: 24px;
+                text-align: center;
+                font-family:"La Belle Aurore",sans-serif;
+            }
+            section div h2{
+                position: absolute;
+                bottom: 0;
+                right: 0;
+            }
+            section div h2 span{
+                font-size: 20px;
+                display: inline-block;
+            }
+            @media print{
+                button{
+                    display: none;
+                }         
+                a{
+                    display: none;
+                }       
+            }
+        </style>
+    </head>
+    <body>
+        <button type="button" onclick="Print()">Print</button>
+        <a href="pay.hbs" class="donate">Donate</a>
+        <section> 
+            <header>
+            <nav>
+                <label>Name :&nbsp;</label><span>{{name}}</span>       
+            </nav>
+            <nav>
+                <label>Symptoms :&nbsp;</label><span>{{sym}}</span>
+            </nav>
+            <nav>
+                <label>Date :&nbsp;</label><span id="date"></span>
+            </nav>
+            <nav>
+                <label>Age :&nbsp;</label><span>{{age}}</span>
+            </nav>
+            </header>
+            <div>
+                <h1>R<sub>x</sub></h1>
+                <main class="tre">
+                    <span>{{med1}} {{num1}}</span>
+                    <span>{{time1}}</span>
+                    <span>{{med2}} {{num2}}</span>
+                    <span>{{time2}}</span>
+                    <span>{{med3}} {{num3}}</span>
+                    <span>{{time3}}</span>
+                </main>
+                <h2><span>Dr. Nilesh J. Vadhavana</span></h2>
+            </div>
+        </section>
+        <script>
+            var a = new Date();
+            var date = a.getDate();
+            var month = a.getMonth()+1;
+            var fullyear = a.getFullYear();
+            document.getElementById("date").innerHTML=date + "-"+month+"-"+fullyear;
+            function Print(){
+                window.print();
+            }
+        </script>
+    </body>
+</html>

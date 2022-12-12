@@ -1,0 +1,100 @@
+<html>
+    <head>
+        <style>
+            *{
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                font-size: 22px;
+            }
+            body{
+                    background-color: #f0f0f3;
+                    display: flex;
+                    flex-flow: wrap row;
+                    justify-content: center;
+                    align-content: center;
+            }
+            form{
+                 box-shadow: -14px -14px 30px #ffffff, 14px 14px 30px #aeaec0;
+                padding: 40px 0 10px 0;
+                width: 40%;
+                display: flex;
+                flex-flow: wrap row;
+                justify-content: center;
+            }
+            form input{
+                border-radius: 10px;
+                outline: 0px;
+                border: 0px;
+                width: 80%;
+                margin: 10px 0;
+                padding: 10px 10px; 
+                box-shadow: inset -5px -5px 15px #ffffff, inset 5px 5px 15px #aeaec0;
+            }
+            .a{
+                padding: 0px;
+                margin: 0px;
+            }
+            form button{
+                border: 0px;
+                outline: 0px;
+                font-weight: bold;
+                color:red;
+                padding: 8px 15px;
+                border-radius:20px;
+                box-shadow: -10px -10px 15px #ffffff, 10px 10px 15px #aeaec0;
+                margin:20px 0;
+            }
+            form button:hover{
+                color: black;
+                  box-shadow: inset -10px -10px 15px #ffffff, inset 5px 5px 15px #aeaec0;
+            }
+            form section{
+                  box-shadow: inset -10px -10px 15px #ffffff, inset 5px 5px 15px #aeaec0;
+                padding: 10px 0;
+                border-radius:10px;
+                width: 80%;
+                display: flex;
+                flex-flow: wrap row;
+                justify-content:flex-start;
+                align-items:baseline;
+                margin: 10px 0;
+            }
+            form section label{
+                font-size: 20px;
+                margin: 0px 10px;
+            }
+            form section input{
+                accent-color: black;
+                box-shadow: 0px 0px 0px;
+            }
+            .a{
+                width: 4%;
+            }
+        </style>
+    </head>
+    <body>
+        <form action="get_treat" method="post">
+            <input type="text" placeholder="Enter Patient's name" name="patient">
+            <input type="text" placeholder="Enter Symptoms" name="disease" onblur="str()"><br>
+            <section>
+                <label>Male</label><input type="radio" name="gender" value="male" class="a"><label>Female</label><input type="radio" value="female" name="gender" class="a"><label>Other</label><input type="radio" name="gender" value="other" class="a">
+            </section>
+            <input type="number" placeholder="Enter Age" name="age"><br>
+            <button type="button">Get Treatment</button>
+        </form>
+        <script>
+            var check;
+            var set;
+            function str(){
+                check = document.getElementsByName("disease")[0].value;
+                set = check.toLowerCase();
+                set = set.trim();
+                document.getElementsByName("disease")[0].value=set;
+                console.log(set);
+                document.getElementsByTagName("button")[0].setAttribute("type","submit");
+            }
+        </script>
+    </body>
+</html>

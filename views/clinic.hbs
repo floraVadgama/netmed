@@ -1,0 +1,109 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Poppins:wght@400;500;600;700&family=Secular+One&display=swap" rel="stylesheet">
+        <style>
+            *{
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+            body{
+                display: flex;
+                flex-flow: wrap row;
+                justify-content: center;
+                align-content: space-between;
+                background-color: #f0f0f3;
+            }
+            header input{
+            
+                background-color: #f0f0f3;
+                width: 70%;
+
+                text-align: left;
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                font-size: 20px;
+              box-shadow: -10px -10px 22px #ffffff, 10px 10px 10px #aeaec0;
+                  border: 0px;
+                outline: 0px;
+                padding: 10px 30px;
+            }
+            header form{
+                display: flex;
+                flex-flow: wrap row;
+                justify-content: space-between;
+            }
+            header button{
+                box-shadow: -10px -10px 22px #ffffff, 10px 10px 10px #aeaec0;
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                font-weight: bold;
+                width: 25%;
+                border: 0px;
+                outline: 0px;
+                font-size: 20px;
+                padding: 15px 0;
+            }
+            header button:hover{
+                   transition: 0.2s;
+                box-shadow: inset -5px -5px 10px #ffffff, inset 5px 5px 10px #aeaec0;
+                color:red;
+                background-color: #f0f0f3;
+             
+            }
+            header{
+                width: 60%;
+            }
+            section{
+                width: 100%;
+                display: grid;
+                grid-template-columns:28% 28%;
+                text-align: center;
+                justify-content: space-around;
+            }
+            section a{
+                border-radius: 20px;
+                box-shadow: -14px -14px 25px #ffffff, 14px 14px 10px #aeaec0;
+                padding: 60px 0;
+                font-size: 40px;
+                display: block;
+                color: black;
+                text-decoration: none;
+                font-family: 'Secular One', sans-serif;
+            }
+            section a:hover{
+                color: blue;
+                transition: 0.2s;
+                box-shadow: inset -10px -10px 20px #ffffff, inset 14px 14px 10px 0 #aeaec0;
+            }
+            footer{
+                width: 100%;
+                text-align: center;
+                padding:10px 0;  
+                   box-shadow: inset -5px -5px 10px #ffffff, inset 5px 5px 10px #aeaec0;
+             font-family: lato,sans-serif;
+                font-weight: bold;
+                color: black;
+                word-spacing: 3px;
+            }
+            footer:hover{
+                transition: 0.2s;
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <form>
+                <input type="text" placeholder="Chat with Dr." autofocus>
+                <button type="submit">Send</button>
+            </form>
+        </header>
+        <section>
+            <a href="gettraetment.hbs">Consultation</a>
+            <a href="takeappointment.hbs">House call</a>
+        </section>
+        <footer>This webApp is built under the supervision of Dr. Nilesh j vadhavana</footer>
+    </body>
+</html>

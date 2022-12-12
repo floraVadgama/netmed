@@ -1,0 +1,135 @@
+<html>
+    <head>
+        <style>
+            *{
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+                    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                    font-size: 22px;
+            }
+            body{
+                    background-color: #f0f0f3;
+                    display: flex;
+                    flex-flow: wrap row;
+                    justify-content:space-evenly;
+                    align-content: center;
+            }
+            form{
+                 box-shadow: -14px -14px 30px #ffffff, 14px 14px 30px #aeaec0;
+                padding: 30px 0;
+                width: 42%;
+                display: flex;
+                flex-flow: wrap row;
+                align-items: center;
+                justify-content: space-evenly;
+            }
+            form input{
+              margin: 10px 0;
+                border-radius: 10px;
+                outline: 0px;
+                border: 0px;
+                width: 80%;
+                padding: 10px 10px; 
+                box-shadow: inset -5px -5px 15px #ffffff, inset 5px 5px 15px #aeaec0;
+            }
+            form button{
+                border: 0px;
+                outline: 0px;
+                font-weight: bold;
+                color:red;
+                padding: 8px 15px;
+                border-radius:20px;
+                box-shadow: -10px -10px 15px #ffffff, 10px 10px 15px #aeaec0;
+                margin-top: 20px;
+            }
+            form button:hover{
+                color: black;
+                  box-shadow: inset -10px -10px 15px #ffffff, inset 5px 5px 15px #aeaec0;
+            }
+            div{
+              border-radius: 20%;
+            }
+            div button{
+              box-shadow: 0px 0px 0px;
+            }
+            .location button{
+              align-self: center;
+            }
+            .get{
+              display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <form action="set_details" method="post" class="data">
+            <input type="text" placeholder="Enter Patient's name" required name="pname"><br>
+            <input type="number" placeholder="+91" maxlength="10" required name="pnumber"><br>
+            <button type="submit">Get Doctor</button>
+        </form>
+
+        <form action="get_coords" method="post" class="location">
+        <button class="btn2" type="button" onclick="getlocation();">Current Position</button>
+        <div id="demo2" style="width: 30%;height:90%"></div>
+        <input type="text" name="latitude" class="get">
+        <input type="text" name="longitude" class="get">
+       <button type="submit" class="btn3">Send</button>
+        </form>
+  </body>
+  <script src="https://maps.google.com/maps/api/js?sensor=false"></script>
+  <script>
+    function getlocation() {
+      if (navigator.geolocation) {   
+        navigator.geolocation.getCurrentPosition(showLoc, errHand);
+      }
+     
+    }
+    function showLoc(pos) {
+      latt = pos.coords.latitude;
+      long = pos.coords.longitude;
+      var lattlong = new google.maps.LatLng(latt, long);
+      var OPTions = {
+        center: lattlong,
+        zoom: 10,
+        mapTypeControl: true,
+        navigationControlOptions: {
+          style: google.maps.NavigationControlStyle.SMALL,
+        },
+      };
+       document.getElementsByName("latitude")[0].value=latt;
+      document.getElementsByName("longitude")[0].value=long;
+      console.log(latt);
+      console.log(long);
+      var mapg = new google.maps.Map(
+        document.getElementById("demo2"),
+        OPTions
+      );
+      var markerg = new google.maps.Marker({
+        position: lattlong,
+        map: mapg,
+        title: "You are here!",
+      });
+    }
+ 
+    function errHand(err) {
+      switch (err.code) {
+        case err.PERMISSION_DENIED:
+          result.innerHTML =
+            "The application doesn't have the permission" +
+            "to make use of location services";
+          break;
+        case err.POSITION_UNAVAILABLE:
+          result.innerHTML = "The location of the device is uncertain";
+          break;
+        case err.TIMEOUT:
+          result.innerHTML = "The request to get user location timed out";
+          break;
+        case err.UNKNOWN_ERROR:
+          result.innerHTML =
+            "Time to fetch location information exceeded" +
+            "the maximum timeout interval";
+          break;
+      }
+    }
+  </script>
+</html>

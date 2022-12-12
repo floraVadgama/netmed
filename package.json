@@ -1,0 +1,23 @@
+{
+  "name": "clinic",
+  "version": "1.0.0",
+  "description": "this is a practice",
+  "main": "clinic.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "mongo"
+  ],
+  "author": "vrajesh",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "hbs": "^4.2.0",
+    "mongod": "^2.0.0",
+    "mongodb": "^4.12.0",
+    "mongoose": "^6.7.2"
+  }
+}
